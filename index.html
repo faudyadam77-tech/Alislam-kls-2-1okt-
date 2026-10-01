@@ -1,0 +1,594 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pembelajaran Interaktif Isra Mikraj Nabi Muhammad SAW</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .card-flip {
+      perspective: 1000px;
+    }
+    .card-inner {
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+    .card-flip.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+    .card-front, .card-back {
+      backface-visibility: hidden;
+    }
+    .card-back {
+      transform: rotateY(180deg);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-emerald-800 text-white shadow-md">
+    <div class="max-w-5xl mx-auto px-4 py-6">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+        <div>
+          <h1 class="text-2xl font-bold tracking-tight">Isra Mikraj Nabi Muhammad SAW</h1>
+          <p class="text-emerald-100 text-sm mt-1">Modul Pembelajaran Interaktif & Evaluasi Pemahaman</p>
+        </div>
+        <span class="bg-emerald-700 text-emerald-100 text-xs px-3 py-1 rounded-full border border-emerald-600">
+          27 Rajab | semalam
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Tabs -->
+  <nav class="bg-white border-b border-slate-200 sticky top-0 z-10 shadow-sm">
+    <div class="max-w-5xl mx-auto px-4 flex space-x-2 overflow-x-auto">
+      <button id="tab-ringkasan" onclick="switchTab('ringkasan')" class="py-3 px-4 text-sm font-medium border-b-2 border-emerald-600 text-emerald-700 whitespace-nowrap">
+        Ringkasan Materi
+      </button>
+      <button id="tab-langit" onclick="switchTab('langit')" class="py-3 px-4 text-sm font-medium border-b-2 border-transparent text-slate-500 hover:text-slate-700 whitespace-nowrap">
+        Persinggahan & 7 Langit
+      </button>
+      <button id="tab-flashcard" onclick="switchTab('flashcard')" class="py-3 px-4 text-sm font-medium border-b-2 border-transparent text-slate-500 hover:text-slate-700 whitespace-nowrap">
+        Kartu Hafalan
+      </button>
+      <button id="tab-kuis" onclick="switchTab('kuis')" class="py-3 px-4 text-sm font-medium border-b-2 border-transparent text-slate-500 hover:text-slate-700 whitespace-nowrap">
+        Latihan Soal (Kuis)
+      </button>
+    </div>
+  </nav>
+
+  <!-- Content Container -->
+  <main class="max-w-5xl mx-auto px-4 py-8 flex-grow w-full">
+
+    <!-- Section 1: Ringkasan Materi -->
+    <section id="section-ringkasan" class="space-y-6">
+      <div class="grid md:grid-cols-2 gap-6">
+        
+        <!-- Concept Box 1 -->
+        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-lg font-bold text-slate-900">1. Pengertian Utama</h2>
+            <span class="bg-emerald-50 text-emerald-700 text-xs font-semibold px-2.5 py-0.5 rounded">Dasar</span>
+          </div>
+          <div class="space-y-3 text-sm text-slate-600 leading-relaxed">
+            <div class="p-3 bg-slate-50 rounded-lg border-l-4 border-emerald-600">
+              <span class="font-semibold text-slate-800">Isra:</span> Perjalanan Nabi Muhammad SAW dari Masjidil Haram (Makkah) ke Masjidil Aqsa (Palestina) mengendarai Buraq didampingi Malaikat Jibril.
+            </div>
+            <div class="p-3 bg-slate-50 rounded-lg border-l-4 border-teal-600">
+              <span class="font-semibold text-slate-800">Mikraj:</span> Perjalanan Nabi Muhammad SAW dari Masjidil Aqsa naik menuju Sidratulmun Taha di langit ketujuh.
+            </div>
+          </div>
+        </div>
+
+        <!-- Concept Box 2 -->
+        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-lg font-bold text-slate-900">2. Waktu & Perintah Salat</h2>
+            <span class="bg-emerald-50 text-emerald-700 text-xs font-semibold px-2.5 py-0.5 rounded">Penting</span>
+          </div>
+          <div class="space-y-3 text-sm text-slate-600 leading-relaxed">
+            <p><strong class="text-slate-800">Waktu Kejadian:</strong> Terjadi pada tanggal 27 Rajab tahun kedelapan kenabian, berlangsung hanya dalam kurun waktu semalam.</p>
+            <hr class="border-slate-100" />
+            <p><strong class="text-slate-800">Perintah Salat Fardu:</strong></p>
+            <ul class="list-disc list-inside space-y-1 text-slate-600">
+              <li>Awalnya diperintahkan sebanyak <strong>50 waktu</strong> sehari.</li>
+              <li>Atas saran <strong>Nabi Musa a.s.</strong> untuk memohon keringanan, Allah SWT menguranginya hingga menjadi <strong>5 waktu</strong> sehari.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Godaan Perjalanan -->
+      <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+        <h2 class="text-lg font-bold text-slate-900 mb-3">3. Godaan Selama Perjalanan</h2>
+        <div class="grid sm:grid-cols-2 gap-4 text-sm">
+          <div class="p-4 bg-amber-50 border border-amber-200 rounded-lg">
+            <h3 class="font-semibold text-amber-900 mb-1">Penawaran Minuman</h3>
+            <p class="text-amber-800">Nabi Muhammad SAW ditawari pilihan antara khamar atau susu. Beliau memilih <strong>susu</strong> (lambang kesucian/fitrah).</p>
+          </div>
+          <div class="p-4 bg-rose-50 border border-rose-200 rounded-lg">
+            <h3 class="font-semibold text-rose-900 mb-1">Panggilan Ghaib</h3>
+            <p class="text-rose-800">Selama perjalanan, Nabi Muhammad SAW mendapat gangguan berupa panggilan dari setan dan iblis.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Persinggahan & 7 Langit -->
+    <section id="section-langit" class="hidden space-y-6">
+      
+      <!-- Tempat Persinggahan -->
+      <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+        <h2 class="text-lg font-bold text-slate-900 mb-2">Tempat Persinggahan Salat</h2>
+        <p class="text-sm text-slate-600 mb-4">Dalam perjalanan menuju Masjidil Aqsa, Nabi Muhammad SAW sempat melaksanakan salat di beberapa tempat bersejarah:</p>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+          <div class="p-3 bg-slate-100 rounded-lg font-semibold text-slate-700 text-sm">Tayyibah</div>
+          <div class="p-3 bg-slate-100 rounded-lg font-semibold text-slate-700 text-sm">Madyan</div>
+          <div class="p-3 bg-slate-100 rounded-lg font-semibold text-slate-700 text-sm">Thursina</div>
+          <div class="p-3 bg-slate-100 rounded-lg font-semibold text-slate-700 text-sm">Betlehem</div>
+        </div>
+      </div>
+
+      <!-- Pertemuan Nabi di 7 Langit -->
+      <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+        <h2 class="text-lg font-bold text-slate-900 mb-4">Pertemuan Para Nabi di Setiap Tingkatan Langit</h2>
+        <div class="space-y-3">
+          
+          <div class="flex items-center p-3 bg-slate-50 rounded-lg border border-slate-200">
+            <span class="w-24 text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100 px-2 py-1 rounded text-center">Langit 1</span>
+            <span class="ml-4 text-sm font-medium text-slate-800">Nabi Adam a.s.</span>
+          </div>
+
+          <div class="flex items-center p-3 bg-slate-50 rounded-lg border border-slate-200">
+            <span class="w-24 text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100 px-2 py-1 rounded text-center">Langit 2</span>
+            <span class="ml-4 text-sm font-medium text-slate-800">Nabi Isa a.s. & Nabi Yahya a.s.</span>
+          </div>
+
+          <div class="flex items-center p-3 bg-slate-50 rounded-lg border border-slate-200">
+            <span class="w-24 text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100 px-2 py-1 rounded text-center">Langit 3</span>
+            <span class="ml-4 text-sm font-medium text-slate-800">Nabi Yusuf a.s.</span>
+          </div>
+
+          <div class="flex items-center p-3 bg-slate-50 rounded-lg border border-slate-200">
+            <span class="w-24 text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100 px-2 py-1 rounded text-center">Langit 4</span>
+            <span class="ml-4 text-sm font-medium text-slate-800">Nabi Idris a.s.</span>
+          </div>
+
+          <div class="flex items-center p-3 bg-slate-50 rounded-lg border border-slate-200">
+            <span class="w-24 text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100 px-2 py-1 rounded text-center">Langit 5</span>
+            <span class="ml-4 text-sm font-medium text-slate-800">Nabi Harun a.s.</span>
+          </div>
+
+          <div class="flex items-center p-3 bg-slate-50 rounded-lg border border-slate-200">
+            <span class="w-24 text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100 px-2 py-1 rounded text-center">Langit 6</span>
+            <span class="ml-4 text-sm font-medium text-slate-800">Nabi Musa a.s.</span>
+          </div>
+
+          <div class="flex items-center p-3 bg-emerald-50 rounded-lg border border-emerald-300">
+            <span class="w-24 text-xs font-bold uppercase tracking-wider text-white bg-emerald-700 px-2 py-1 rounded text-center">Langit 7</span>
+            <div class="ml-4">
+              <div class="text-sm font-bold text-emerald-900">Nabi Ibrahim a.s.</div>
+              <div class="text-xs text-emerald-700">Terdapat Sidratulmun Taha & Penerimaan Perintah Salat</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Section 3: Kartu Hafalan (Flashcards) -->
+    <section id="section-flashcard" class="hidden space-y-6">
+      <div class="text-center max-w-xl mx-auto">
+        <h2 class="text-xl font-bold text-slate-900">Kartu Hafalan Cepat</h2>
+        <p class="text-sm text-slate-600 mt-1">Klik kartu untuk melihat jawaban di balik pertanyaan.</p>
+      </div>
+
+      <div class="max-w-md mx-auto">
+        <div id="flashcard" onclick="flipCard()" class="card-flip cursor-pointer h-64 w-full">
+          <div id="flashcard-inner" class="card-inner relative w-full h-full shadow-md rounded-2xl bg-white border border-slate-200 p-6 flex items-center justify-center text-center">
+            <!-- Front -->
+            <div class="card-front absolute inset-0 p-6 flex flex-col justify-between items-center">
+              <span id="flashcard-tag" class="text-xs font-semibold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full">Pertanyaan 1</span>
+              <p id="flashcard-q" class="text-lg font-medium text-slate-800">Dimana letak Sidratulmun Taha?</p>
+              <span class="text-xs text-slate-400">Klik untuk balik kartu</span>
+            </div>
+            <!-- Back -->
+            <div class="card-back absolute inset-0 p-6 flex flex-col justify-between items-center bg-emerald-800 text-white rounded-2xl">
+              <span class="text-xs font-semibold uppercase tracking-wider text-emerald-200 bg-emerald-700 px-3 py-1 rounded-full">Jawaban</span>
+              <p id="flashcard-a" class="text-xl font-bold">Di langit ketujuh</p>
+              <span class="text-xs text-emerald-200">Klik untuk balik kembali</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-between items-center mt-6">
+          <button onclick="prevCard()" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg hover:bg-slate-50 text-slate-700">
+            Sebelumnya
+          </button>
+          <span id="card-counter" class="text-sm font-semibold text-slate-600">1 / 5</span>
+          <button onclick="nextCard()" class="px-4 py-2 text-sm font-medium bg-emerald-700 text-white rounded-lg hover:bg-emerald-800">
+            Berikutnya
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Kuis Interaktif -->
+  <section id="section-kuis" class="hidden space-y-6">
+    
+    <!-- Quiz Header / Progress -->
+    <div id="quiz-header" class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+      <div class="flex justify-between items-center mb-2">
+        <span id="quiz-progress-text" class="text-sm font-semibold text-slate-700">Soal 1 dari 10</span>
+        <span id="quiz-score-badge" class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded">Skor: 0</span>
+      </div>
+      <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+        <div id="quiz-progress-bar" class="bg-emerald-600 h-full w-1/10 transition-all duration-300"></div>
+      </div>
+    </div>
+        <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+          <div id="quiz-progress-bar" class="bg-emerald-600 h-full w-1/5 transition-all duration-300"></div>
+        </div>
+      </div>
+
+      <!-- Question Card -->
+      <div id="quiz-body" class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-6">
+        <h3 id="quiz-question" class="text-lg font-bold text-slate-900 leading-snug">
+          <!-- Question text injected via JS -->
+        </h3>
+
+        <div id="quiz-options" class="space-y-3">
+          <!-- Options injected via JS -->
+        </div>
+
+        <!-- Explanation box -->
+        <div id="quiz-feedback" class="hidden p-4 rounded-lg text-sm border">
+          <!-- Feedback text injected via JS -->
+        </div>
+
+        <div class="flex justify-end pt-2">
+          <button id="btn-next-question" onclick="nextQuestion()" class="hidden px-6 py-2.5 bg-emerald-700 hover:bg-emerald-800 text-white font-medium text-sm rounded-lg transition-colors">
+            Soal Selanjutnya
+          </button>
+        </div>
+      </div>
+
+      <!-- Quiz Result Summary (Initially Hidden) -->
+      <div id="quiz-results" class="hidden bg-white p-8 rounded-xl border border-slate-200 shadow-sm text-center space-y-6">
+        <h2 class="text-2xl font-bold text-slate-900">Hasil Latihan Kuis</h2>
+        
+        <div class="inline-block p-6 bg-slate-50 rounded-2xl border border-slate-200">
+          <div class="text-4xl font-black text-emerald-700 mb-1" id="final-score">0 / 100</div>
+          <p class="text-sm text-slate-600" id="final-stats">Anda menjawab 0 dari 5 soal dengan benar.</p>
+        </div>
+
+        <div id="result-message" class="text-sm text-slate-700 font-medium"></div>
+
+        <div>
+          <button onclick="restartQuiz()" class="px-6 py-3 bg-emerald-700 hover:bg-emerald-800 text-white font-medium text-sm rounded-lg transition-colors">
+            Ulangi Kuis
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-200 py-4 text-center text-xs text-slate-500">
+    Pembelajaran Interaktif Isra Mikraj &copy; 2026
+  </footer>
+
+  <!-- Javascript Logic -->
+  <script>
+    // Tab Switching Logic
+    function switchTab(tabName) {
+      const tabs = ['ringkasan', 'langit', 'flashcard', 'kuis'];
+      tabs.forEach(t => {
+        const btn = document.getElementById(`tab-${t}`);
+        const sec = document.getElementById(`section-${t}`);
+        if (t === tabName) {
+          btn.className = "py-3 px-4 text-sm font-medium border-b-2 border-emerald-600 text-emerald-700 whitespace-nowrap";
+          sec.classList.remove('hidden');
+        } else {
+          btn.className = "py-3 px-4 text-sm font-medium border-b-2 border-transparent text-slate-500 hover:text-slate-700 whitespace-nowrap";
+          sec.classList.add('hidden');
+        }
+      });
+    }
+
+    // Flashcard Data & Logic
+    const flashcards = [
+      {
+        tag: "Pertanyaan 1",
+        q: "Di manakah letak Sidratulmun Taha berada?",
+        a: "Di langit ketujuh"
+      },
+      {
+        tag: "Pertanyaan 2",
+        q: "Siapa nabi yang ditemui di langit ke-6?",
+        a: "Nabi Musa a.s."
+      },
+      {
+        tag: "Pertanyaan 3",
+        q: "Berapa jumlah salat fardu yang pertama kali diperintahkan?",
+        a: "50 waktu sehari"
+      },
+      {
+        tag: "Pertanyaan 4",
+        q: "Siapa nabi yang menyarankan memohon keringanan salat?",
+        a: "Nabi Musa a.s."
+      },
+      {
+        tag: "Pertanyaan 5",
+        q: "Minuman apa yang dipilih Nabi Muhammad SAW saat ditawari pilihan?",
+        a: "Susu"
+      }
+    ];
+
+    let currentCardIndex = 0;
+    let isFlipped = false;
+
+    function updateCard() {
+      const cardElem = document.getElementById('flashcard');
+      cardElem.classList.remove('flipped');
+      isFlipped = false;
+
+      setTimeout(() => {
+        document.getElementById('flashcard-tag').innerText = flashcards[currentCardIndex].tag;
+        document.getElementById('flashcard-q').innerText = flashcards[currentCardIndex].q;
+        document.getElementById('flashcard-a').innerText = flashcards[currentCardIndex].a;
+        document.getElementById('card-counter').innerText = `${currentCardIndex + 1} / ${flashcards.length}`;
+      }, 150);
+    }
+
+    function flipCard() {
+      const cardElem = document.getElementById('flashcard');
+      isFlipped = !isFlipped;
+      if (isFlipped) {
+        cardElem.classList.add('flipped');
+      } else {
+        cardElem.classList.remove('flipped');
+      }
+    }
+
+    function nextCard() {
+      if (currentCardIndex < flashcards.length - 1) {
+        currentCardIndex++;
+        updateCard();
+      }
+    }
+
+    function prevCard() {
+      if (currentCardIndex > 0) {
+        currentCardIndex--;
+        updateCard();
+      }
+    }
+
+    // Quiz Data
+    const quizQuestions = [
+      {
+        question: "Di langit ke berapa Nabi Muhammad SAW mendapat perintah salat dari Allah SWT?",
+        options: [
+          { text: "A. Langit kelima", isCorrect: false },
+          { text: "B. Langit keenam", isCorrect: false },
+          { text: "C. Langit ketujuh", isCorrect: true },
+          { text: "D. Langit keempat", isCorrect: false }
+        ],
+        explanation: "Nabi Muhammad SAW naik hingga ke Sidratulmun Taha di langit ketujuh untuk menerima perintah salat fardu langsung dari Allah SWT."
+      },
+      {
+        question: "Apa saja godaan yang dialami Nabi Muhammad SAW selama perjalanan Isra Mikraj?",
+        options: [
+          { text: "A. Ditawari khamar atau susu serta diganggu panggilan setan dan iblis", isCorrect: true },
+          { text: "B. Dihalangi badai pasir dan hewan buas", isCorrect: false },
+          { text: "C. Ditawari harta benda dan kekuasaan oleh kaum Quraysh", isCorrect: false },
+          { text: "D. Diganggu oleh tentara kerajaan di perjalanan", isCorrect: false }
+        ],
+        explanation: "Selama perjalanan, Nabi Muhammad SAW ditawari khamar atau susu (dan memilih susu) serta diganggu oleh panggilan setan dan iblis."
+      },
+      {
+        question: "Berapa waktu salat fardu yang pertama kali diperintahkan Allah SWT kepada Nabi Muhammad SAW?",
+        options: [
+          { text: "A. 5 waktu", isCorrect: false },
+          { text: "B. 17 waktu", isCorrect: false },
+          { text: "C. 27 waktu", isCorrect: false },
+          { text: "D. 50 waktu", isCorrect: true }
+        ],
+        explanation: "Perintah salat fardu awal mulanya diwajibkan sebanyak 50 waktu dalam sehari semalam sebelum akhirnya diberikan keringanan."
+      },
+      {
+        question: "Siapakah nabi yang menyarankan Nabi Muhammad SAW untuk meminta keringanan jumlah waktu salat?",
+        options: [
+          { text: "A. Nabi Ibrahim a.s.", isCorrect: false },
+          { text: "B. Nabi Musa a.s.", isCorrect: true },
+          { text: "C. Nabi Isa a.s.", isCorrect: false },
+          { text: "D. Nabi Yusuf a.s.", isCorrect: false }
+        ],
+        explanation: "Nabi Musa a.s. menyarankan agar Nabi Muhammad SAW memohon keringanan kepada Allah SWT demi kemampuan umatnya."
+      },
+      {
+        question: "Di manakah letak Sidratulmun Taha berada?",
+        options: [
+          { text: "A. Di Masjidil Haram", isCorrect: false },
+          { text: "B. Di Masjidil Aqsa", isCorrect: false },
+          { text: "C. Di langit ketujuh", isCorrect: true },
+          { text: "D. Di Thursina", isCorrect: false }
+        ],
+        explanation: "Sidratulmun Taha terletak di langit ketujuh, tempat puncak Mikraj Nabi Muhammad SAW."
+      },
+      {
+        question: "Apakah pengertian dari peristiwa 'Isra'?",
+        options: [
+          { text: "A. Perjalanan Nabi dari Masjidil Aqsa ke Sidratulmun Taha", isCorrect: false },
+          { text: "B. Perjalanan Nabi dari Masjidil Haram ke Masjidil Aqsa", isCorrect: true },
+          { text: "C. Perjalanan hijrah Nabi dari Makkah ke Madinah", isCorrect: false },
+          { text: "D. Perjalanan Nabi mengelilingi Ka'bah", isCorrect: false }
+        ],
+        explanation: "Isra adalah perjalanan Nabi Muhammad SAW dari Masjidil Haram (Makkah) ke Masjidil Aqsa (Palestina) mengendarai Buraq."
+      },
+      {
+        question: "Kapan terjadinya peristiwa Isra Mikraj Nabi Muhammad SAW?",
+        options: [
+          { text: "A. 17 Ramadan", isCorrect: false },
+          { text: "B. 12 Rabiul Awal", isCorrect: false },
+          { text: "C. 27 Rajab", isCorrect: true },
+          { text: "D. 1 Muharram", isCorrect: false }
+        ],
+        explanation: "Peristiwa Isra Mikraj terjadi pada tanggal 27 Rajab tahun kedelapan kenabian dalam kurun waktu semalam."
+      },
+      {
+        question: "Siapakah nabi yang ditemui Nabi Muhammad SAW di langit pertama?",
+        options: [
+          { text: "A. Nabi Adam a.s.", isCorrect: true },
+          { text: "B. Nabi Idris a.s.", isCorrect: false },
+          { text: "C. Nabi Ibrahim a.s.", isCorrect: false },
+          { text: "D. Nabi Isa a.s.", isCorrect: false }
+        ],
+        explanation: "Di langit pertama, Nabi Muhammad SAW bertemu dengan manusia pertama yaitu Nabi Adam a.s."
+      },
+      {
+        question: "Siapakah dua nabi yang ditemui oleh Nabi Muhammad SAW di langit kedua?",
+        options: [
+          { text: "A. Nabi Musa a.s. & Nabi Harun a.s.", isCorrect: false },
+          { text: "B. Nabi Isa a.s. & Nabi Yahya a.s.", isCorrect: true },
+          { text: "C. Nabi Yusuf a.s. & Nabi Idris a.s.", isCorrect: false },
+          { text: "D. Nabi Ibrahim a.s. & Nabi Adam a.s.", isCorrect: false }
+        ],
+        explanation: "Di langit kedua, Nabi Muhammad SAW bertemu dengan Nabi Isa a.s. dan Nabi Yahya a.s."
+      },
+      {
+        question: "Di manakah tempat-tempat persinggahan salat Nabi Muhammad SAW sebelum sampai ke Masjidil Aqsa?",
+        options: [
+          { text: "A. Tayyibah, Madyan, Thursina, dan Betlehem", isCorrect: true },
+          { text: "B. Mina, Arafah, Muzdalifah, dan Uhud", isCorrect: false },
+          { text: "C. Quba, Badar, Hudaibiyah, dan Taif", isCorrect: false },
+          { text: "D. Kufah, Basrah, Damaskus, dan Yerusalem", isCorrect: false }
+        ],
+        explanation: "Dalam perjalanan Isra menuju Masjidil Aqsa, Nabi sempat salat di Tayyibah, Madyan, Thursina, dan Betlehem."
+      }
+    ];
+
+    let currentQuestionIndex = 0;
+    let userScore = 0;
+    let answered = false;
+
+    function renderQuestion() {
+      answered = false;
+      const qData = quizQuestions[currentQuestionIndex];
+      
+      document.getElementById('quiz-progress-text').innerText = `Soal ${currentQuestionIndex + 1} dari ${quizQuestions.length}`;
+      document.getElementById('quiz-progress-bar').style.width = `${((currentQuestionIndex + 1) / quizQuestions.length) * 100}%`;
+      document.getElementById('quiz-question').innerText = qData.question;
+      
+      const optionsContainer = document.getElementById('quiz-options');
+      optionsContainer.innerHTML = '';
+
+      qData.options.forEach((opt, idx) => {
+        const btn = document.createElement('button');
+        btn.className = "w-full text-left p-4 rounded-lg border border-slate-200 hover:border-emerald-600 hover:bg-emerald-50/50 transition-all text-sm font-medium text-slate-800 focus:outline-none";
+        btn.innerText = opt.text;
+        btn.onclick = () => selectOption(idx);
+        optionsContainer.appendChild(btn);
+      });
+
+      const feedbackElem = document.getElementById('quiz-feedback');
+      feedbackElem.className = "hidden p-4 rounded-lg text-sm border";
+      feedbackElem.innerText = '';
+      
+      document.getElementById('btn-next-question').classList.add('hidden');
+    }
+
+    function selectOption(selectedIndex) {
+      if (answered) return;
+      answered = true;
+
+      const qData = quizQuestions[currentQuestionIndex];
+      const optionsButtons = document.getElementById('quiz-options').children;
+      const feedbackElem = document.getElementById('quiz-feedback');
+
+      const isCorrect = qData.options[selectedIndex].isCorrect;
+
+      if (isCorrect) {
+        userScore++;
+        optionsButtons[selectedIndex].className = "w-full text-left p-4 rounded-lg border-2 border-emerald-600 bg-emerald-50 text-emerald-900 font-semibold text-sm";
+        feedbackElem.className = "p-4 rounded-lg text-sm border border-emerald-200 bg-emerald-50 text-emerald-800";
+        feedbackElem.innerHTML = `<strong>Benar!</strong> ${qData.explanation}`;
+      } else {
+        optionsButtons[selectedIndex].className = "w-full text-left p-4 rounded-lg border-2 border-rose-500 bg-rose-50 text-rose-900 font-semibold text-sm";
+        
+        // Highlight correct answer
+        qData.options.forEach((opt, idx) => {
+          if (opt.isCorrect) {
+            optionsButtons[idx].className = "w-full text-left p-4 rounded-lg border-2 border-emerald-600 bg-emerald-50 text-emerald-900 font-semibold text-sm";
+          }
+        });
+
+        feedbackElem.className = "p-4 rounded-lg text-sm border border-rose-200 bg-rose-50 text-rose-800";
+        feedbackElem.innerHTML = `<strong>Kurang Tepat.</strong> ${qData.explanation}`;
+      }
+
+      feedbackElem.classList.remove('hidden');
+      document.getElementById('quiz-score-badge').innerText = `Skor: ${userScore * 10}`;
+      document.getElementById('btn-next-question').classList.remove('hidden');
+
+      if (currentQuestionIndex === quizQuestions.length - 1) {
+        document.getElementById('btn-next-question').innerText = "Lihat Hasil Kuis";
+      } else {
+        document.getElementById('btn-next-question').innerText = "Soal Selanjutnya";
+      }
+    }
+
+    function nextQuestion() {
+      if (currentQuestionIndex < quizQuestions.length - 1) {
+        currentQuestionIndex++;
+        renderQuestion();
+      } else {
+        showResults();
+      }
+    }
+
+    function showResults() {
+      document.getElementById('quiz-header').classList.add('hidden');
+      document.getElementById('quiz-body').classList.add('hidden');
+      
+      const resultsElem = document.getElementById('quiz-results');
+      resultsElem.classList.remove('hidden');
+
+      const finalScoreCalculated = Math.round((userScore / quizQuestions.length) * 100);
+      document.getElementById('final-score').innerText = `${finalScoreCalculated}`;
+      document.getElementById('final-stats').innerText = `Anda menjawab ${userScore} dari ${quizQuestions.length} soal dengan benar.`;
+
+      const msgElem = document.getElementById('result-message');
+      if (finalScoreCalculated === 100) {
+        msgElem.innerText = "Sempurna! Anda telah memahami seluruh ringkasan materi Isra Mikraj dengan sangat baik.";
+      } else if (finalScoreCalculated >= 60) {
+        msgElem.innerText = "Bagus sekali! Pemahaman Anda sudah cukup baik. Pelajari lagi poin yang terlewat untuk hasil maksimal.";
+      } else {
+        msgElem.innerText = "Tetap semangat! Anda bisa membaca ulang ringkasan materi dan mencoba kuis kembali.";
+      }
+    }
+
+    function restartQuiz() {
+      currentQuestionIndex = 0;
+      userScore = 0;
+      document.getElementById('quiz-score-badge').innerText = `Skor: 0`;
+      document.getElementById('quiz-header').classList.remove('hidden');
+      document.getElementById('quiz-body').classList.remove('hidden');
+      document.getElementById('quiz-results').classList.add('hidden');
+      renderQuestion();
+    }
+
+    // Initialize Quiz
+    renderQuestion();
+  </script>
+</body>
+</html>
+```
